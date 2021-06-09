@@ -212,8 +212,8 @@ public class LinkedInRequestManager {
         linkedInWebView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                if (url.startsWith(redirectionURL + "/?code")) {
-                    String newString = url.replace((redirectionURL + "/?code="), "").trim();
+                if (url.startsWith(redirectionURL + "?code")) {
+                    String newString = url.replace((redirectionURL + "?code="), "").trim();
                     String code = newString.substring(0, newString.indexOf("&state=aRandomString"));
                     getAccessToken(code);
                     linkedInManagerResponse.onGetCodeSuccess(code);
